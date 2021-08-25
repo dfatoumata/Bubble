@@ -1,0 +1,19 @@
+{
+  "depenses": [
+    {
+      "id": 1,
+      "produit": "Article 1 de Fatou",
+      "montant": -20
+    },
+    {
+      "produit": "Article top",
+      "montant": 100,
+      "id": 7
+    },
+    {
+      "produit": "Article top2",
+      "montant": 15,
+      "id": 8
+    }
+  ]
+}

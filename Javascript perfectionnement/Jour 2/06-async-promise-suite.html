@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getArticles() {
+        return new Promise(function (resolve, reject) {
+          let xhr = new XMLHttpRequest();
+          xhr.open("get", "https://jsonplaceholder.typicode.com/posts");
+          xhr.send();
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              resolve({ articles: JSON.parse(xhr.responseText) });
+            } else {
+              reject(`èrreur ${xhr.status} lors de la requete AJAX`);
+            }
+          };
+        });
+      }
+      function getUsers(listeArticle) {
+        return new Promise(function (resolve, reject) {
+          let xhr = new XMLHttpRequest();
+          xhr.open("get", "https://jsonplaceholder.typicode.com/users");
+          xhr.send();
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              //resolve([JSON.parse(xhr.responseText), ...listeArticle]);
+              resolve({ ...listeArticle, users: JSON.parse(xhr.responseText) });
+            } else {
+              reject(`èrreur ${xhr.status} lors de la requete AJAX`);
+            }
+          };
+        });
+      }
+      function getComments(tableau) {
+        return new Promise(function (resolve, reject) {
+          let xhr = new XMLHttpRequest();
+          xhr.open("get", "https://jsonplaceholder.typicode.com/comments");
+          xhr.send();
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              resolve({
+                ...tableau,
+                commentaire: JSON.parse(xhr.responseText),
+              });
+            } else {
+              reject(`èrreur ${xhr.status} lors de la requete AJAX`);
+            }
+          };
+        });
+      }
+    //   getArticles()
+    //     .then((reponse) => console.log(reponse))
+    //     .catch();
+      getArticles()
+        .then((reponse) => {
+          return getUsers(reponse);
+        })
+        .then((reponse) => {
+          return getComments(reponse);
+        })
+        .then((reponse) => console.log(reponse));
+    </script>
+  </body>
+</html>

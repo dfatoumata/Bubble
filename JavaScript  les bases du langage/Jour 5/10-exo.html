@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      //données
+      let articles = [
+        {
+          id: 1,
+          tache: "rédiger article",
+          etat: true,
+        },
+        {
+          id: 2,
+          tache: "finir exo",
+          etat: false,
+        },
+      ];
+      //ajouter dans la div : un formulaire contenant 3 champs
+      window.addEventListener("DOMContentLoaded", () => {
+        const formulaire = ` <form  onsubmit = "return ajouterListe(this)">
+            <div>
+                <input type="hidden" name = "id">
+            </div>
+            <div>
+                <label>Tache</label>
+                <input type="text" name = "tache">
+            </div>
+            <div>
+                <label>Etat</label>
+                <input type="checkbox" name="etat">
+            </div>
+            <div>    
+                 <input type="submit">
+            </div>
+            </form>
+            <section>
+                <ul> ${genererArticle()} <ul>
+            </section>`;
+        //console.log(genererArticle());
+        document.querySelector("div").innerHTML = formulaire;
+      });
+      function genererArticle() {
+        return articles
+          .map(
+            (article) =>
+              "<li>" +
+              article.tache +
+              " - état " +
+              encourTerminer(article) +
+              "</li>"
+          )
+          .join("");
+      }
+      function ajouterListe(form) {
+        //ajouter dans la variable data les donnés saisie dans le formulaire puis déclencher genererArticle
+        let tache = form.tache.value;
+        let etat1 = form.etat;
+        let nouvelleArticle = {
+          tache: tache,
+          etat: etat1.checked,
+        };
+        console.log("nouvel art " + etat1.checked);
+        articles.push(nouvelleArticle);
+        console.log(genererArticle());
+        document.querySelector("ul").innerHTML = genererArticle();
+        form.reset();
+        return false;
+      }
+      let etat2 = "";
+      function encourTerminer(article) {
+        if (article.etat) {
+          // console.log("oui")
+          return "fait";
+        } else {
+          return "en cours";
+        }
+      }
+    </script>
+  </body>
+</html>

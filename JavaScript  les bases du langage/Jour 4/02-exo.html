@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .afficher {
+        display: block;
+      }
+      .cacher {
+        display: none;
+      }
+      ul,
+      section {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+      }
+      li {
+        margin: 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img
+        id="img1"
+        src="./img/depositphotos_29460297-stock-photo-bird-cage.jpg"
+        alt="oiseau"
+      />
+      <img id="img2" src="./img/983794168.jpg" alt="beau" class="cacher" />
+    </section>
+    <ul>
+      <li>
+        <button>Action 1</button>
+      </li>
+      <li>
+        <button>Action 2</button>
+      </li>
+    </ul>
+    <script>
+      let buttons = document.querySelectorAll("button");
+      buttons[0].addEventListener("click", () => {
+        document.querySelector("#img1").classList.remove("cacher");
+        document.querySelector("#img2").classList.add("cacher");
+        document.querySelector()
+        //document.querySelector("#img1").classList.add("afficher");
+      });
+      buttons[1].addEventListener("click", () => {
+        document.querySelector("#img1").classList.add("cacher");
+        document.querySelector("#img2").classList.remove("cacher");
+        //document.querySelector("#img2").classList.add("afficher");
+      });
+    </script>
+  </body>
+</html>

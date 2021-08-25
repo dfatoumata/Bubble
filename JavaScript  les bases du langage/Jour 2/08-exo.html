@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isPalindrome(text) {
+        if (text == text.split("").reverse().join("")) {
+          console.log("c'est un palindrome ");
+          return;
+        }
+        console.log("ce n'est pas un palindrome");
+      }
+      isPalindrome("kayak");
+      isPalindrome("lol");
+      isPalindrome("laos");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <section class="row">
+        <form class="mt-4">
+          <!--div.form-group*3-->
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="body">Body</label>
+            <textarea name="body" id="body" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-outline-success my-3" />
+            <!--Ajouter de la marge sur l'axe des y ==> my, sur l'axe des x ==> mx-->
+          </div>
+        </form>
+      </section>
+      <hr />
+      <section class="row articles"></section>
+    </div>
+    <script>
+      let bdd = [];
+      let lastId = 0;
+      let requette = new XMLHttpRequest();
+      requette.open("get", "https://jsonplaceholder.typicode.com/posts");
+      requette.send();
+      requette.onload = () => {
+        bdd = JSON.parse(requette.responseText);
+        lastId = bdd[bdd.length - 1].id + 1;
+        genererListeArticle(bdd);
+      };
+      function genererListeArticle(bdd) {
+        let articles = bdd.map(
+          (article) => `<article class="col-md-4 mb-3">
+            <div class="card">
+                <h2 class="card-header">${article.title}</h2>
+                <p class="card-body">${article.body}</p>
+                <div class="card-footer">
+                    <button class="btn btn-warning" onclick = "modifier(${article.id})">Modifier</button>
+                    <button class="btn btn-danger" onclick ="supprimer(${article.id})">Supprimer</button>
+                </div>
+            </div>
+        </article>`
+        );
+
+        document.querySelector(".articles").innerHTML = articles.join("");
+      }
+      function supprimer(id) {
+        let articleASupprimer = bdd.find((item) => item.id == id);
+        console.log(articleASupprimer);
+        if (!articleASupprimer) {
+          alert("L'article à supprimer n'existe plus");
+          return;
+        }
+        let index = bdd.indexOf(articleASupprimer);
+        console.log(index);
+        bdd.splice(index, 1);
+        genererListeArticle(bdd);
+      }
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        let nouvelleArticle = {
+          id: lastId++, // bdd[0].id - 1
+          title: e.target.title.value,
+          body: e.target.body.value,
+        };
+        bdd.unshift(nouvelleArticle);
+        genererListeArticle(bdd);
+        e.target.reset();
+      });
+      function modifier(id) {
+        let articles = bdd.map((article) => {
+          return article.id == id
+            ? `<form class="col-md-4 mb-3" onsubmit = "return validerModification(this)">
+                        <input type="hidden" name="id" value="${article.id}" class="form-control">
+                        <br>
+                        <input type="text" name="title" value="${article.title}" class="form-control">
+                        <br>
+                        <textarea name="body" class="form-control" >${article.body}</textarea>
+                        <br>
+                        <input type="submit" class="btn btn-outline-success my-3">
+                    </form>
+                  `
+            : `<article class="col-md-4 mb-3">
+            <div class="card">
+                <h2 class="card-header">${article.title}</h2>
+                <p class="card-body">${article.body}</p>
+                <div class="card-footer">
+                    <button class="btn btn-warning" onclick = "modifier(${article.id})">Modifier</button>
+                    <button class="btn btn-danger" onclick ="supprimer(${article.id})">Supprimer</button>
+                </div>
+            </div>
+        </article>`;
+        });
+        document.querySelector(".articles").innerHTML = articles.join("");
+      }
+      function validerModification(form) {
+        let idArticleAModifier = form.id.value;
+        let articleAModifier = bdd.find(
+          (item) => item.id == idArticleAModifier
+        );
+        let index = bdd.indexOf(articleAModifier);
+        let articleModifie = {
+          id: form.id.value,
+          title: form.title.value,
+          body: form.body.value,
+        };
+        console.log(index, articleModifie);
+        bdd.splice(index, 1, articleModifie);
+        genererListeArticle(bdd);
+        return false;
+      }
+    </script>
+  </body>
+</html>

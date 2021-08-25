@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Questionnaire</h1>
+      <button>Ajouter une nouvelle question</button>
+      <hr />
+    </div>
+    <script>
+      let codeHTML = document.querySelector(".app");
+      let button = document.querySelector("button");
+      button.addEventListener("click", function (e) {
+        const form = ` <form onsubmit = "return validation()">
+                <input type="text">
+                 <input type="submit">
+                 </form>`;
+        codeHTML.innerHTML += form;
+        console.log(codeHTML.innerHTML);
+        console.log(this);
+        button = this;
+        console.log(button);
+        e.target;
+        //ajouter(codeHTML.innerHTML);
+      });
+      function ajouter(form) {
+        document.querySelector(".app").innerHTML += form;
+      }
+    </script>
+  </body>
+</html>

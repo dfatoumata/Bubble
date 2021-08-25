@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <div><input type="text" /></div>
+      <div><textarea name="" id="" cols="30" rows="10"></textarea></div>
+      <input type="submit" />
+    </form>
+    <script>
+      let email = "test@yahoo.fr";
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        let emailFormulaire = document.querySelector("input").value;
+        console.log(emailFormulaire);
+      });
+      let phrase = "Bonjour les amis";
+      console.log(phrase.toLowerCase);
+      console.log(phrase.toUpperCase);
+      console.log(phrase.split(" "));
+      console.log(phrase.split("o"));
+      console.log(phrase.substring(0, 7));
+      console.log(phrase.includes("amis"));
+      console.log(phrase.includes("aMis"));
+
+      let pattern1 = new RegExp("a");
+      console.log(phrase.match(pattern1));
+    </script>
+  </body>
+</html>

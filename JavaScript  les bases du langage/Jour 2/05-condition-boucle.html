@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let test = 0 < 1 ? "0 est inferieur à 1" : "0 est superieur à 1";
+      console.log(test);
+      for (let i = 0; i < 10; i++) {
+        console.log(i);
+      }
+      let i = 0;
+      while (i < 10) {
+        console.log(i);
+        i++;
+      }
+      let array = ["toto", "titit", "fifif"];
+
+      for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+      }
+      let j = 0;
+      while (j < array.length) {
+        console.log(array[j]);
+        j++;
+      }
+
+      for (let item of array) {
+        console.log(item);
+      }
+      for (let index in array) {
+        console.log(array[index]);
+      }
+      array.forEach((element) => {
+        console.log(element);
+      });
+      let b = {
+        nom: "lol",
+        prenom: "hihih",
+        age: 25,
+      };
+      for (let index in b) {
+        console.log(b[index]);
+      }
+      (() => {
+        console.log("hihi je m'appelle moi même");
+      })();
+    </script>
+  </body>
+</html>

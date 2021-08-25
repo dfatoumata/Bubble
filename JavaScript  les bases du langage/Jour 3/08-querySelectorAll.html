@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- //p*3>lorem10 -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore.
+    </p>
+    <p>
+      Exercitationem alias consectetur nostrum id quas perferendis odit
+      blanditiis vitae.
+    </p>
+    <p>
+      Pariatur dolorem beatae quidem aliquid praesentium, sed distinctio quasi
+      esse?
+    </p>
+    <script>
+      document.querySelector("p").innerHTML = "modification"; //c'est que le 1er qui sera impacter
+      let p = document.querySelectorAll("p");
+      console.log(p);
+      p[1].innerHTML = "je modifie le 2eme p";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let tache1 = "rentrer dans la chambre";
+      let tache2 = "ranger les vêtements";
+      let tache3 = "prendre un goutter";
+      console.log(tache1);
+      setTimeout(() => {
+        console.log(tache2);
+        setTimeout(() => {
+          console.log(tache3);
+        }, 2000);
+      }, 5000);
+    </script>
+  </body>
+</html>

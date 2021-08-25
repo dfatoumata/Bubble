@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      //Ajax  =Asychrone javascript and XML
+      let requette = new XMLHttpRequest();
+      requette.open("get", "https://jsonplaceholder.typicode.com/posts");
+      requette.send();
+      requette.onload = () => {
+        console.log(requette.response);
+        console.log(requette.responseText);
+        console.log(JSON.parse(requette.responseText));
+        let bdd = JSON.parse(requette.responseText);
+        let articles = bdd.map(
+          (item) => `<article>
+            <h2>${item.title}</h2>
+            <p>${item.body}</p>
+            </article>
+        `
+        );
+        console.log(articles.join(""));
+        document.querySelector("div").innerHTML = articles.join("");
+      };
+    </script>
+    <style>
+      div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+      }
+    </style>
+  </body>
+</html>

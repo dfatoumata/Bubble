@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let promesse = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          let data;
+          if (typeof data == "object") {
+            resolve(data);
+          } else {
+            reject("les données réçues ne sont pas correctes");
+          }
+        }, 2000);
+      });
+      promesse
+        .then((reponse) => console.log(reponse))
+        .catch((erreur) => console.log(erreur));
+      let getArticles = new Promise(function (resolve, reject) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", "https://jsonplaceholder.typicode.com/comments");
+        xhr.send();
+        xhr.onload = () => {
+          if (xhr.status != 404) {
+            resolve(JSON.parse(xhr.responseText));
+          } else {
+            reject("l'url n'existe pas");
+          }
+        };
+      });
+      getArticles
+        .then((response) => console.log(response))
+        .catch((erreur) => console.log(erreur));
+    </script>
+  </body>
+</html>

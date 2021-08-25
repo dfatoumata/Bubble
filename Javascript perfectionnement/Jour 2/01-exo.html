@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let userBdd;
+      let requetteUsers = new XMLHttpRequest();
+      requetteUsers.open("get", "https://jsonplaceholder.typicode.com/users");
+      requetteUsers.send();
+      requetteUsers.onload = () => {
+        userBdd = JSON.parse(requetteUsers.responseText);
+      };
+      let requettePosts = new XMLHttpRequest();
+      requettePosts.open("get", "https://jsonplaceholder.typicode.com/posts");
+      requettePosts.send();
+      requettePosts.onload = () => {
+        let bdd = JSON.parse(requettePosts.responseText);
+        let articles = [];
+        console.log(userBdd);
+        for (const article of bdd) {
+          
+          let userN = userBdd.filter((user) => user.id == article.userId);
+          let test2 = { ...article, ...userN };
+          //   console.log(userN);
+          //   let test  = article.concat(userN);
+          //   console.log(test);
+          //   articles.push(test);
+          articles.push(test2);
+        }
+      };
+
+      //   let bibliotheque  = livres.map(function (livre)  {
+      //       return { ...livre, auteur: auteurs.find(function (auteur){
+      //           return livre.idAuteur == auteur.id
+      //       })}
+      //   })
+      //   console.log(bibliotheque);
+
+      //   let bibliotheque2  = livres.map(function (livre)  {
+      //       return { ...livre, auteur: auteurs.find(function (auteur){
+      //           return livre.idAuteur == auteur.id
+      //       })}
+      //   })
+      //   console.log(bibliotheque);
+    </script>
+  </body>
+</html>

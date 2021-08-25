@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let calculTVA = (prixHt) => prixHt * 1.2;
+      let genererFacture = (total) => {
+        console.log("votre facture est de: " + calculTVA(total));
+      };
+      genererFacture(200);
+      function genereDevis(fn, total) {
+        console.log("votre facture est de: " + fn(total));
+      }
+      genereDevis(function monCalculTVA(prixHt) {
+        return prixHt * 1.2;
+      }, 200);
+
+      let jours = ["Lundi", "Mardi", "Mercredi"];
+
+      jours.forEach((j) => console.log(j));
+
+      let listeForeach = jours.forEach((j) => {
+        let chiffre = 10;
+        console.log(j + " " + chiffre);
+        chiffre++;
+        return j + " " + chiffre;
+      });
+      console.log("liste foreach: " + listeForeach);
+      let listeprix = [2, 3, 4, 10, 20, 17, 29];
+      let listeprixFiltrer = listeprix.filter((p) => p > 15);
+      console.log(listeprixFiltrer);
+      let listeprixFiltrer2 = listeprix.filter((p) => {
+        return p > 15;
+      });
+      console.log(listeprixFiltrer2);
+
+      jours.map((j) => console.log(`<h1>${j}</h1>`));
+    </script>
+  </body>
+</html>

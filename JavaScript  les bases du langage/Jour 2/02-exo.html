@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let voiture = ["Bonjour", "les", "amis"];
+      voiture.push("au revoir");
+      voiture.unshift("hello");
+      voiture.splice(voiture.indexOf("les"), 0, "information");
+      console.log(voiture);
+      voiture.splice(voiture.indexOf("amis"), 1);
+      console.log("La position de bonjour est: " + voiture.indexOf("Bonjour"));
+      console.log(voiture.includes("Les"));
+      console.log(voiture);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let pattern1 = new RegExp("...");
+      let pattern = /.../;
+      //.match .test .replace .search
+      //groupe de lettre=> /[a-z]/ /[A-Z]/ /[aeiouy]/ /[0-9]/
+      //plage cumulé => /[a-zA-Z0-9]/
+      //multiplicateur ==>/[a-z]{2}/ deux minuscules qui se suivent dans la chaine
+      //multiplicateur ==>/[a-z]{2,4}/ entre 2 et 4 minuscules qui se suivent dans la chaine
+      //multiplicateur ==>/[a-z]{2,}/ au moins deux minuscules qui se suivent dans la chaine
+      let str = "Bonjour";
+      console.log(str.match(pattern));
+      //^ une chaine de caracter qui commence par (à ecrire une seule fois dans le regex)
+      //$ une chaine de caracter qui se termine par (à ecrire une seule fois dans le regex)
+      ///^ $/ la chaine de caractere doit intégralement vérifier le pattern
+      let auteur = "Victor Hugo";
+      let patternAuteur = /^[a-zA-Z ]{11}$/;
+      console.log(auteur.match(patternAuteur));
+      //
+      let patternAuteur2 = /^[A-Z]{1}[a-zA-Z ]{1,}$/; //A la place de {1,} on peut mettre + et on peut se passer de {1}
+      console.log(auteur.match(patternAuteur2));
+      let patternAuteur3 = /^[A-Z][a-zA-Z ]+$/;
+      console.log(auteur.match(patternAuteur3));
+      let patternAuteur4 = /^[A-Z][a-zA-Z ]*$/;
+      console.log(auteur.match(patternAuteur4));
+      let patternAuteur5 = /^[A-Z][a-zA-Z ]?$/;
+      console.log(auteur.match(patternAuteur5));
+    </script>
+  </body>
+</html>

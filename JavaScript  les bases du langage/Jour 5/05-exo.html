@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" placeholder="votre nom" />
+      <input type="text" placeholder="votre email" />
+      <br />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="votre commentaire"
+      ></textarea>
+      <br />
+      <button type="submit">Envoyer</button>
+    </form>
+    <script>
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        let emailFormulaire = document.querySelectorAll("input")[1].value;
+        let nomFormulaire = document.querySelectorAll("input")[0].value;
+        let commentaireFormulaire = document.querySelector("textarea").value;
+        let patternNom = /^[a-zA-Z ']{5,255}$/;
+        let patternEmail = /^[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,}$/;
+        let patternCommentaire = /^[^<>]{5,}$/;
+        console.log(commentaireFormulaire.match(patternCommentaire));
+        if (
+          nomFormulaire.match(patternNom) &&
+          emailFormulaire.match(patternEmail) &&
+          commentaireFormulaire.match(patternCommentaire)
+        ) {
+          this.submit();
+        } else if (!nomFormulaire.match(patternNom)) {
+          console.log(
+            "nom doit avoir au moins 5 caractères et majuscule minuscule espace ' maximum 255"
+          );
+        } else if (!emailFormulaire.match(patternEmail)) {
+          console.log("email doit être un email valide");
+        } else if (!commentaireFormulaire.match(patternCommentaire)) {
+          console.log(
+            "commentaire accepte tous les caractères sauf les caractères < > au minimum 5 caractères"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

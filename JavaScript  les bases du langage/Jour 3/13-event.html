@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Action 1</button>
+    <hr />
+    <button>Action 2</button>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <script>
+      let button = document.querySelectorAll("button");
+      button[0].addEventListener("click", () => {
+        alert("j'ai cliqué sur le premier bouton");
+      });
+      button[1].addEventListener("click", () => {
+        document.querySelector("p").style.color = "red";
+      });
+
+      let taillePolice = "16px";
+      button[1].addEventListener("click", () => {
+        if (taillePolice == "30px") {
+          taillePolice = "16px";
+        } else {
+          taillePolice = "30px";
+        }
+        document.querySelector("p").style.fontSize = taillePolice;
+      });
+    </script>
+  </body>
+</html>

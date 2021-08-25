@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Utiliser data- avec le nom que l'on veut pour creer des attribut personnalisés-->
+    <button data-couleur="red" data-texte="Bonjour" data-font-style="arial">
+      Action 1
+    </button>
+    <button data-couleur="blue" data-texte="Salut" data-font-style="italic">
+      Action 2
+    </button>
+    <script>
+      let buttons = document.querySelectorAll("button");
+      function changement() {
+        this.innerText = this.dataset.texte;
+        this.style.color = this.dataset.couleur;
+        this.style.fontStyle = this.dataset.fontStyle;
+      }
+      buttons.forEach((button) => button.addEventListener("click", changement));
+    </script>
+  </body>
+</html>

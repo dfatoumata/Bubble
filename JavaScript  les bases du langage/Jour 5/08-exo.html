@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="gestion">
+      <h1>Ajouter un nouveau profil</h1>
+      <button onclick="ajouterFormulaire()">Ajouter</button>
+      <hr />
+    </div>
+    <script>
+      function ajouterFormulaire() {
+        const form = ` <form onsubmit = "return validation(this)">
+                <input type="text" name = "login" placeholder="login">
+                <input type="password" name = "password" placeholder="password">
+                 <input type="submit">
+                 </form>`;
+        document.querySelector(".gestion").innerHTML += form;
+      }
+      function validation(form) {
+        let pattern = /^[a-zA-Z ]{5,100}$/;
+
+        if (
+          form.login.value.match(pattern) &&
+          form.password.value.match(pattern)
+        ) {
+          alert(
+            "Le login saisi est " +
+              form[0].value +
+              " le mot de passe saisi est " +
+              form[1].value
+          );
+        } else {
+          alert(
+            "Le login saisi et le mot de passe saisi ne doivent contenir que des minuscule / majuscule / espace et entre 5 et 100 caratère   "
+          );
+        }
+
+        return false;
+      }
+    </script>
+  </body>
+</html>

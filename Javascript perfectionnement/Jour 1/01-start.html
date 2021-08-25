@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arbre = {
+        nom: "chêne",
+        taille: 2,
+        unite: "mètre",
+        description: function () {
+          console.log(
+            `${this.nom} a une taille de ${this.taille} ${this.unite}`
+          );
+        },
+      };
+      let arbreJSON = `{
+        "nom": "chêne",
+        "taille": 2,
+        "unite": "mètre",
+        "couleurs" : ["rouge", "vert", "marron"],
+        "adresse" : {
+            "rue" : "75 rue du Paradis",
+            "ville" : "Paris"
+        },
+        "estEnFleur" : true
+      }`;
+      let arbeJson2 = JSON.stringify(arbre);
+      console.log(arbeJson2);
+      let arbreObjetJS = JSON.parse(arbreJSON);
+      console.log(arbreObjetJS);
+
+      let methodeJson = `{
+        "methode1": "(function test() { return ('je suis la methode 1')})()"
+    }`;
+      let methodeObject = JSON.parse(methodeJson);
+      let test = eval(methodeObject.methode1);
+      console.log(test);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        class A { // notation PascalCase
+            largeur = 10 ; // ne pas utiliser let pour définir les propriétés de la class
+            hauteur = 20 ;
+            couleur ;
+        }
+
+        // 2 créer de l'objet qui instance de class
+        let a = new A();
+
+        console.log(a);
+
+        // en javascript il est possible de créer un objet SANS passer par une class
+
+        let toto = {
+            largeur : 30 ,
+            hauteur : 22  ,
+            couleur : undefined
+        } ;
+
+        // class B
+        class B{
+            unite ;
+            largeur ;
+
+            constructor(unite , largeur){
+                this.unite = unite ;
+                this.largeur = largeur ;
+            }
+        }
+
+        let b = new B([], "bonjour");
+        let b3 = new B("blabla",true );
+
+        console.log(b, b3);
+
+        // rapide !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        let b2 = {
+            unite : "px",
+            largeur : 30
+        }
+
+        // etudiant
+
+        let etudiant = {
+            prenom : "Alain",
+            nom : "Dupont",
+            age : 22,
+            adresse : {
+                rue : "75 rue de Paris",
+                cp : 75000,
+                ville : "Paris"
+            },
+            estEnFormation : true
+        };
+      let voiture = {
+          marque = "Peugeot",
+          anneAchat : 2012,
+          modele:206,
+          details: function(){
+              console.log(`${this.marque} ${this.anneAchat} ${this.modele}`);
+          }
+      }
+    </script>
+  </body>
+</html>

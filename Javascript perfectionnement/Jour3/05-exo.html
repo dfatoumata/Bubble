@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <!-- <script type="module">
+      import { data  } from "./05-data.js";
+      import { html } from "./05-traitement.js";
+      document.querySelector("div").innerHTML = html;
+    </script> -->
+    <script type="module">
+      import { dataBdd } from "./05-data.js";
+      import { genererArticle } from "./05-traitement.js";
+      async function extractBdd() {
+        let data1 = await dataBdd();
+        let html = genererArticle(data1);
+        document.querySelector("div").innerHTML = html;
+      }
+      extractBdd();
+    </script>
+    <style>
+        div{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr );
+            grid-gap: 10px;
+        }
+    </style>
+  </body>
+</html>

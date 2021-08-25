@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let formation = {
+        nom: "Js initiation et DOM",
+        duree: 5,
+        unite: "jours",
+        organisme: {
+          nom: "Doranco",
+          ville: "Paris",
+        },
+        afficher: function () {
+          console.log(
+            `Je suis une formation dont le suijet est ${this.nom} au près de  ${this.organisme.nom} \nLa formation va durer ${this.duree}  ${this.unite} à  ${this.organisme.ville}  `
+          );
+        },
+      };
+      formation.afficher();
+    </script>
+  </body>
+</html>

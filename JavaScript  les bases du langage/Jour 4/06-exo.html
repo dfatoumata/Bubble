@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cacher {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button data-number="1">Onglet 1</button>
+    <button data-number="2">Onglet 2</button>
+    <button data-number="3">Onglet 3</button>
+    <p data-number="1">Lorem ipsum dolor sit amet.</p>
+    <p data-number="2">Officiis harum modi odio qui!</p>
+    <p data-number="3">Nostrum qui dolor accusamus nobis.</p>
+    <script>
+      let buttons = document.querySelectorAll("button");
+      let ps = document.querySelectorAll("p");
+
+      function modification(ps, btn) {
+        //console.log(ps + " et " + btn);
+        //console.log(btn.dataset.number);
+        ps.forEach(function (p) {
+          console.log(p.dataset.number);
+          if (p.dataset.number == btn.dataset.number) {
+            p.classList.remove("cacher");
+          } else {
+            p.classList.add("cacher");
+          }
+        });
+      }
+      buttons.forEach(function (button) {
+        //     buttons[0].addEventListener("click", a);  //Dans l01-event.html
+        //button.addEventListener("click", modification(ps, button));
+        button.addEventListener("click", function () {
+          modification(ps, button);
+        });
+      });
+    </script>
+  </body>
+</html>

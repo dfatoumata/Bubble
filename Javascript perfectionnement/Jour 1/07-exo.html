@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let data = [
+        {
+          _id: "61114232cab4a8e8af3ea2bc",
+          index: 0,
+          guid: "54aac5fd-3ec2-4ecb-9d09-4ab8e2a0d059",
+          isActive: true,
+          balance: "$3,730.69",
+          picture: "http://placehold.it/32x32",
+          age: 38,
+          eyeColor: "blue",
+          name: "Katrina Wyatt",
+          gender: "female",
+          company: "CUBIX",
+          email: "katrinawyatt@cubix.com",
+          phone: "+1 (861) 460-3767",
+          address: "752 Summit Street, Kent, Oregon, 9430",
+          about:
+            "Magna anim laborum et amet nisi deserunt duis. In commodo laborum non consequat cupidatat officia sunt occaecat fugiat consectetur incididunt adipisicing velit enim. Amet mollit officia veniam dolor fugiat duis ipsum velit.\r\n",
+          registered: "2017-12-21T09:52:57 -01:00",
+          latitude: 73.894731,
+          longitude: -157.631799,
+          tags: ["velit", "amet", "in", "eiusmod", "labore", "veniam", "elit"],
+          friends: [
+            { id: 0, name: "Latasha Jensen" },
+            { id: 1, name: "Carey Griffin" },
+            { id: 2, name: "Lindsay Keith" },
+          ],
+          greeting: "Hello, Katrina Wyatt! You have 7 unread messages.",
+          favoriteFruit: "apple",
+        },
+        {
+          _id: "61114232581c0b5e1698e997",
+          index: 1,
+          guid: "66755a6b-4e83-4625-9cf9-99c9eee502e9",
+          isActive: true,
+          balance: "$2,678.08",
+          picture: "http://placehold.it/32x32",
+          age: 29,
+          eyeColor: "brown",
+          name: "Alvarez King",
+          gender: "male",
+          company: "ANIVET",
+          email: "alvarezking@anivet.com",
+          phone: "+1 (832) 504-2992",
+          address: "412 Cambridge Place, Richmond, Tennessee, 3534",
+          about:
+            "Eiusmod amet occaecat ad deserunt consectetur labore ut cupidatat nostrud. Aliqua quis est qui labore laborum eiusmod ea consequat ut proident enim tempor nisi incididunt. Veniam ad nulla cillum esse irure labore ad elit. In id consequat excepteur ex. Minim ipsum pariatur tempor commodo. Sunt aliqua est eu ea eiusmod dolore ipsum exercitation pariatur velit commodo anim.\r\n",
+          registered: "2019-07-19T11:37:15 -02:00",
+          latitude: 21.659451,
+          longitude: -108.673425,
+          tags: [
+            "aliquip",
+            "aliqua",
+            "irure",
+            "dolore",
+            "esse",
+            "enim",
+            "tempor",
+          ],
+          friends: [
+            { id: 0, name: "Cherry Jones" },
+            { id: 1, name: "Acosta Beach" },
+            { id: 2, name: "Rios Stephenson" },
+          ],
+          greeting: "Hello, Alvarez King! You have 10 unread messages.",
+          favoriteFruit: "strawberry",
+        },
+        {
+          _id: "61114232158a405856f79eb3",
+          index: 2,
+          guid: "ec14728b-f84f-4c1a-98ac-5025d00c7082",
+          isActive: true,
+          balance: "$3,961.59",
+          picture: "http://placehold.it/32x32",
+          age: 33,
+          eyeColor: "green",
+          name: "Dyer Faulkner",
+          gender: "male",
+          company: "ACCRUEX",
+          email: "dyerfaulkner@accruex.com",
+          phone: "+1 (943) 517-3345",
+          address: "504 Pineapple Street, Accoville, Puerto Rico, 7583",
+          about:
+            "Magna dolore adipisicing incididunt exercitation. Quis labore elit occaecat reprehenderit culpa. Aliqua magna sunt Lorem officia consectetur dolor commodo quis officia aute id adipisicing eu. Qui ea mollit non consectetur ipsum aliquip consectetur mollit incididunt quis enim tempor dolore do.\r\n",
+          registered: "2014-10-22T10:24:06 -02:00",
+          latitude: -84.493601,
+          longitude: -57.159134,
+          tags: ["ullamco", "ea", "aute", "magna", "sit", "enim", "in"],
+          friends: [
+            { id: 0, name: "Becky Guy" },
+            { id: 1, name: "Castro Bolton" },
+            { id: 2, name: "Maude Sanders" },
+          ],
+          greeting: "Hello, Dyer Faulkner! You have 8 unread messages.",
+          favoriteFruit: "banana",
+        },
+        {
+          _id: "61114232c31e17cbdc9c889f",
+          index: 3,
+          guid: "7322b0fa-de95-4a1b-9a21-0cb4abdb334b",
+          isActive: false,
+          balance: "$2,090.39",
+          picture: "http://placehold.it/32x32",
+          age: 34,
+          eyeColor: "blue",
+          name: "Candice Barry",
+          gender: "female",
+          company: "BIFLEX",
+          email: "candicebarry@biflex.com",
+          phone: "+1 (974) 464-2701",
+          address: "526 Village Road, Wolcott, Ohio, 7463",
+          about:
+            "Deserunt qui eiusmod pariatur irure anim excepteur excepteur aliquip occaecat nostrud aute. Anim enim ex irure laborum ipsum ullamco laboris Lorem sint eiusmod. Lorem ut pariatur fugiat nostrud adipisicing. Ipsum voluptate enim occaecat ex ea consequat qui. Labore aliqua dolore adipisicing cupidatat voluptate pariatur duis occaecat id do veniam dolore pariatur cupidatat.\r\n",
+          registered: "2018-07-04T11:59:32 -02:00",
+          latitude: 18.724642,
+          longitude: 14.394389,
+          tags: [
+            "eu",
+            "enim",
+            "dolor",
+            "aute",
+            "pariatur",
+            "deserunt",
+            "commodo",
+          ],
+          friends: [
+            { id: 0, name: "Espinoza Shaffer" },
+            { id: 1, name: "Fern Garrison" },
+            { id: 2, name: "Cherie Dillon" },
+          ],
+          greeting: "Hello, Candice Barry! You have 1 unread messages.",
+          favoriteFruit: "strawberry",
+        },
+        {
+          _id: "61114232fe74ede750fd5285",
+          index: 4,
+          guid: "b54e5888-ab79-4683-8943-7744a031c468",
+          isActive: true,
+          balance: "$2,851.66",
+          picture: "http://placehold.it/32x32",
+          age: 40,
+          eyeColor: "green",
+          name: "Tami Dodson",
+          gender: "female",
+          company: "ZILLA",
+          email: "tamidodson@zilla.com",
+          phone: "+1 (919) 580-2778",
+          address: "526 Beaver Street, Inkerman, Minnesota, 9938",
+          about:
+            "Mollit quis aliqua duis ad dolor non Lorem sint irure ullamco consequat pariatur nulla amet. Non est mollit velit amet ipsum reprehenderit sint elit sit cillum laborum labore. Tempor id voluptate sunt ea ad elit aute non nulla dolore fugiat. Tempor eiusmod occaecat enim qui ut magna consequat proident. Sit sunt ad consectetur tempor ipsum labore et pariatur non est enim tempor aute.\r\n",
+          registered: "2018-08-31T03:13:33 -02:00",
+          latitude: -64.452006,
+          longitude: -146.926866,
+          tags: ["quis", "nostrud", "culpa", "ipsum", "ad", "quis", "sunt"],
+          friends: [
+            { id: 0, name: "Curry Torres" },
+            { id: 1, name: "Sargent Pena" },
+            { id: 2, name: "Faye Todd" },
+          ],
+          greeting: "Hello, Tami Dodson! You have 10 unread messages.",
+          favoriteFruit: "banana",
+        },
+      ];
+      let index = data.findIndex(
+        (item) => item._id == "61114232158a405856f79eb3"
+      );
+      console.log(
+        "L'index de l'objet qui a l'_id = 61114232158a405856f79eb3 est: " +
+          index
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "decouverte-npm",
+  "version": "1.0.0",
+  "description": "découverte de NPM",
+  "main": "01-start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "découverte"
+  ],
+  "author": "Fatoumata DIARRA",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

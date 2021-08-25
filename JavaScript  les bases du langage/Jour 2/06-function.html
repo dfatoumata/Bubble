@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function a() {}
+      a();
+      let b = function () {};
+      b();
+      let c = () => {};
+      c();
+      function addition(a, b) {
+        console.log(a + b);
+      }
+      addition(1, 2);
+      let soustraction = function (a, b) {
+        console.log(a - b);
+      };
+      soustraction(4, 3);
+      let multiplication = (a, b) => {
+        console.log(a - b);
+      };
+      multiplication(3, 2);
+      let test = (titre) => {
+        console.log("titre 1");
+      };
+      //   let test2 = (titre) => {
+      //     //On peut ne pas mettre de parenthèse
+      //     console.log(titre);
+      //   };
+      test("mon titre");
+      //   test2("mon titre");
+      let aireCarre = (cote) => {
+        return cote * cote;
+      };
+      let aireCarre2 = (cote) => cote * cote; //les 2 sont identiques
+      function tester() {
+        console.log(arguments);
+      }
+      tester();
+      tester(1);
+      tester(1, 2, 3, 4, 5);
+
+      function tester2(...toto) {
+        console.log(toto);
+      }
+      tester2();
+      tester2(1);
+      tester2(1, 2, 3, 4, 5);
+
+      function addition4(...chiffres) {
+        let resultat = 0;
+        for (let chiffre of chiffres) {
+          resultat += chiffre;
+        }
+        console.log(resultat);
+      }
+
+      addition4(2, 3);
+      addition4(2, 4, 6, 5, 9, 1);
+      addition4(2, 4, 3, 5);
+    </script>
+  </body>
+</html>

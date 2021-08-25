@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 3px solid red;
+        padding: 30px;
+        text-align: center;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      const div = document.querySelector("div");
+      div.addEventListener("click", function (e) {
+        this.innerText = "j'ai cliqué sur la div";
+        console.log(this.innerText, e.target);
+      });
+      div.addEventListener("mouseenter", (e) => {
+        this.innerText = "la souris est entre dans la div";
+        div.innerText = "la souris est entre dans la div";
+        console.log(this.innerText, e.target);
+      });
+      div.addEventListener("mouseleave", (e) => {
+        this.innerText = "la souris est sortie de la div";
+        div.innerText = "la souris est sortie de la div";
+        console.log(this.innerText, e.target);
+      });
+      // mousedown; mouseup
+    </script>
+  </body>
+</html>

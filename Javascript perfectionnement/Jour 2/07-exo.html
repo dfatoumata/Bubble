@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+          function getTodos() {
+            return new Promise(function (resolve, reject) {
+              let xhr = new XMLHttpRequest();
+              xhr.open("get", "https://jsonplaceholder.typicode.com/todos");
+              xhr.send();
+              xhr.onload = () => {
+                if (xhr.status === 200) {
+                  resolve({ actions: JSON.parse(xhr.responseText) });
+                } else {
+                  reject(`erreur ${xhr.status} lors de la requete AJAX`);
+                }
+              };
+            });
+          }
+          function getUsers(listeTaches) {
+            return new Promise(function (resolve, reject) {
+              let xhr = new XMLHttpRequest();
+              xhr.open("get", "https://jsonplaceholder.typicode.com/users");
+              xhr.send();
+              xhr.onload = () => {
+                if (xhr.status === 200) {
+                  //resolve([JSON.parse(xhr.responseText), ...listeArticle]);
+                  resolve({ ...listeTaches, users: JSON.parse(xhr.responseText) });
+                } else {
+                  reject(`erreur $s{xhr.status} lors de la requete AJAX`);
+                }
+              };
+            });
+          };
+
+          getTodos().then( reponse => getUsers(reponse))
+                 .then( donnee => {
+                     let resultat = donnee.getTodos
+                      .filter(todo => todo.completed == false)
+                                            .map( item => {
+                                                return { ...item , user : donnee.users.find( user => user.id == item.userId ) }
+                                            })
+                            console.log(resultat);
+      //     let tableau = [];
+      //     getTodos().then((reponse) => { return getUsers(reponse);})
+      //   .then((reponse) => {
+      //         let tacheNonComplete = reponse.actions.filter((rep) => rep.completed == false);
+      //         tacheNonComplete.map((tache) => {
+      //           let userN = reponse.users.filter((user) => user.id == tache.userId);
+      //           let test = { ...tache, user: userN.map((user) => user.name) };
+      //           tableau.push(test);
+      //         });
+      //       });
+      //     console.log(tableau);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+[
+  { "_id": 1234, "nom": "Alain", "age": 21 },
+  { "_id": 1235, "nom": "Béatrice", "age": 12 },
+  { "_id": 1236, "nom": "Charles", "age": 44 }
+]
